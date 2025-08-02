@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.staticTest;
 //static 方法的继承关系
 class Parent {
     /**

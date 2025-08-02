@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.staticTest;
 //static 全局变量
 class MyClass {
     static int count = 0;  // 静态变量，用于记录MyClass实例的数量

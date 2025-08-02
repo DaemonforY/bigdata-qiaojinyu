@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.staticTest;
 
 //static 修饰方法
 class MyClass2 {

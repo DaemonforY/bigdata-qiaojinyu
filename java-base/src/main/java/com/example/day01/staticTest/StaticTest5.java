@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.staticTest;
 
 
 public class StaticTest5 {

@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.compareTest;
 
 public class Two {
     public static void main(String[] args) {

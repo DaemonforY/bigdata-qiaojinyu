@@ -1,4 +1,4 @@
-package com.example.day01;
+package com.example.day01.staticTest;
 
 /**
  * StaticTest4 类用于演示静态变量和静态代码块的初始化过程
