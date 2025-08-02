@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/bigdata-qiaojinyu.iml" filepath="$PROJECT_DIR$/.idea/bigdata-qiaojinyu.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-base/java-base.iml" filepath="$PROJECT_DIR$/java-base/java-base.iml" />
     </modules>
   </component>
 </project>
