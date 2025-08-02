@@ -81,7 +81,9 @@ void speak() { // 行为
 
 ## "==" 与equals() 方法的区别
 
-![image-20250802220846694](C:\Users\55422\AppData\Roaming\Typora\typora-user-images\image-20250802220846694.png)
+<img width="663" height="281" alt="e49dbc6449a3689e16696aaf4df4ee8" src="https://github.com/user-attachments/assets/1a9a9ad1-28b7-444d-9dd8-7be091ffd8bf" />
+
+
 
 **引用类型**：所有对象（包括`String`、集合、自定义类等）
 
