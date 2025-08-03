@@ -15,7 +15,7 @@ class MyClass {
 }
 
 
-public class StaticTest {
+public class StaticTest1 {
     public static void main(String[] args) {
         MyClass obj1 = new MyClass();
         MyClass obj2 = new MyClass();
