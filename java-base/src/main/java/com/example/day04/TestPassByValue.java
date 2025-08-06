@@ -1,5 +1,5 @@
 package com.example.day04;
-
+//通过值传递参数
 public class TestPassByValue {
     public static void main(String[] args) {
         int num1 = 1;
@@ -19,9 +19,9 @@ public class TestPassByValue {
         System.out.println("\t\t交换前 n1 的值为：" + n1
                 + "，n2 的值：" + n2);
         // 交换 n1 与 n2的值
-        int temp = n1;
-        n1 = n2;
-        n2 = temp;
+      int temp =n1;
+      n1=n2;
+      n2=temp;
 
         System.out.println("\t\t交换后 n1 的值为 " + n1
                 + "，n2 的值：" + n2);
