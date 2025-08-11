@@ -50,15 +50,8 @@ public class UserStreamDemo {
             users.add(new User(name, city, vip, score));
         }
 
-        // where city=beijing and vip=true order by score desc limit 10
-        List<User> collect = users.stream()
-                .filter(u -> "Beijing".equals(u.getCity()))
-                .filter(User::isVip)
-                .sorted(Comparator.comparing(User::getScore).reversed())
-                .limit(10)
-                .collect(Collectors.toList());
 
-        collect.forEach(System.out::println);
+
 
         // 传统解法（嵌套循环 + 临时集合）
         List<User> top10BeijingVip1 = new ArrayList<>();
