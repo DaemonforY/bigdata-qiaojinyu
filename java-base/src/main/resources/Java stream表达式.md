@@ -249,6 +249,7 @@ Map<String, Long> wordCount = words.parallelStream()
 ## 1. 并行流共享状态危险
 
 **概念说明：**
+
 - 并行流（parallelStream）在内部会把任务分配给多个线程并发执行。
 - 如果在流的操作中**读写了共享的可变对象**（比如普通的 List、Map、计数器等），就会发生线程安全问题。
 - 这种“共享状态”会导致数据丢失、重复、甚至抛出异常，结果不可预期。
@@ -281,6 +282,7 @@ words.parallelStream().forEach(word -> {
 - 例如：`map`、`filter`、`sorted`、`limit` 等操作本身不涉及外部变量的修改。
 
 **为什么重要？**
+
 - 并行流只有在所有操作都是无状态的情况下，才能保证并发安全和正确的结果。
 - 如果有副作用（如写入外部集合、计数器等），就会引入竞争条件和线程安全问题。
 
@@ -546,6 +548,9 @@ System.out.println(sum);
 
 ### 2.1 Stream 基本用法
 - Stream 流式风格
+
+  `Stream`（流）是处理集合的高级工具，它允许你以声明式方式对集合进行筛选、转换、聚合等操作，代码更简洁易读，同时支持并行处理提升效率。
+
 - `filter`、`map`、`sorted`、`limit`、`sum` 等常用操作
 
 #### 案例2：用 Stream 重写
@@ -557,7 +562,9 @@ int sum = numbers.stream()
     .limit(5)
     .mapToInt(Integer::intValue)
     .sum();
+
 System.out.println(sum);
+
 ```
 
 ### 2.2 Stream 的优势
@@ -721,7 +728,7 @@ List<Integer> evens = numbers.stream()
 
 ---
 
-### 案例2：映射与转换
+### 案例2：筛选和收集
 **描述**：将字符串列表全部转为大写。
 
 ```java

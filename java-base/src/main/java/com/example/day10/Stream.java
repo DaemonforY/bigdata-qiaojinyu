@@ -48,6 +48,18 @@ public class Stream {
         System.out.println("平均值：" + avg);
         System.out.println("和：" + sum);
 
+        //flatMap扁平化
+        //将二维字符串列表扁平化为一维列表
+        List<List<String>> lsits = Arrays.asList(
+                Arrays.asList("a", "b"),
+                Arrays.asList("c", "d"),
+                Arrays.asList("e", "f")
+        );
+        List<String> flat = lsits.stream()
+                .flatMap(List::stream)
+                .toList();
+        System.out.println(flat);
+
 
 
     }
