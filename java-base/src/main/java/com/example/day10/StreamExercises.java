@@ -47,7 +47,7 @@ public class StreamExercises {
         
         // 5. 统计一个整数列表中所有偶数的平方之和
         System.out.println("\n5. 统计一个整数列表中所有偶数的平方之和:");
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        ArrayList<Integer> numbers =new ArrayList<Integer>( Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         exercises.exercise5(numbers);
         
         // 6. 将员工列表按部门分组，并统计每个部门的平均工资

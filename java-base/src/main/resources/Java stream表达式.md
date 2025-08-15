@@ -744,9 +744,9 @@ List<String> upperWords = words.stream()
 **描述**：对自定义对象列表按分数降序排序。
 
 ```java
-List<Student> students = ...;
-List<Student> sorted = students.stream()
-    .sorted(Comparator.comparing(Student::getScore).reversed())
+List<com.example.day11.Student> students = ...;
+List<com.example.day11.Student> sorted = students.stream()
+    .sorted(Comparator.comparing(com.example.day11.Student::getScore).reversed())
     .collect(Collectors.toList());
 ```
 
