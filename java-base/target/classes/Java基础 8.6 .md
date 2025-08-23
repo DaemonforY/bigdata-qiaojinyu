@@ -23,7 +23,7 @@
 1. **封装一个学生类**
 
 ```javascript
-public class Student {
+public class com.example.day11.Student {
     private String name;
     private int age;
     // 获取学生姓名
@@ -44,10 +44,10 @@ public class Student {
         this.age = age;
     }
     // 无参构造函数
-    public Student(){
+    public com.example.day11.Student(){
     }
     // 有参构造函数
-    public Student(String name, int age) {
+    public com.example.day11.Student(String name, int age) {
         this.name = name;
         this.age = age;
     }
@@ -60,7 +60,7 @@ public class Student {
 public class StudentTest {
     public static void main(String[] args){
         // 实例化一学生
-        Student student = new Student();
+        com.example.day11.Student student = new com.example.day11.Student();
         // 设置学生姓名
         student.setName("aiguangyuan");
         // 设置学生年龄

@@ -2,24 +2,33 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <!-- 父工程统一管理版本：选择 2.6.13（兼容 JDK 1.8），删除版本冲突配置 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.4</version>
+        <version>2.6.13</version> <!-- 与原 dependencyManagement 版本一致，兼容 JDK 1.8 -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>SpringBoot-deom</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.8</java.version> <!-- 保持 JDK 1.8，匹配 Spring Boot 2.6.13 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.6.13</spring-boot.version>
+        <!-- 移除 spring-boot.version 定义：父工程已统一管理，避免冲突 -->
     </properties>
     <dependencies>
+
+        <!-- 集成redis依赖  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- Spring Boot Web Starter：父工程自动控制版本，无需额外指定 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -36,37 +45,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <!-- 移除 dependencyManagement：父工程已包含 spring-boot-dependencies，重复配置会导致版本冲突 -->
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <!-- 移除手动版本：父工程已管理，避免与 Spring Boot 版本不兼容 -->
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source> <!-- 引用 properties 中的 JDK 版本，更灵活 -->
+                    <target>${java.version}</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
+                <!-- 移除手动版本：父工程自动匹配，避免冲突 -->
                 <configuration>
-                    <mainClass>com.example.springdemo.SpringDemoApplication</mainClass>
-                    <skip>true</skip>
+                    <mainClass>com.example.springdemo.demos.web.SpringDemoApplication</mainClass>
+                    <skip>false</skip> <!-- 改为 false：允许插件正常打包（true 会跳过打包） -->
                 </configuration>
                 <executions>
                     <execution>

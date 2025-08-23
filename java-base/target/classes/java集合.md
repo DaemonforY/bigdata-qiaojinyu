@@ -378,13 +378,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class Student {
+class com.example.day11.Student {
     private String id;
     private String name;
     private int age;
     private String department;
 
-    public Student(String id, String name, int age, String department) {
+    public com.example.day11.Student(String id, String name, int age, String department) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -398,7 +398,7 @@ class Student {
 }
 
 public class StudentInformationSystem {
-    private Map<String, Student> studentMap;
+    private Map<String, com.example.day11.Student> studentMap;
 
     public StudentInformationSystem() {
         studentMap = new HashMap<>();
@@ -406,14 +406,14 @@ public class StudentInformationSystem {
 
     // 添加学生信息
     public void addStudent(String id, String name, int age, String department) {
-        Student student = new Student(id, name, age, department);
+        com.example.day11.Student student = new com.example.day11.Student(id, name, age, department);
         studentMap.put(id, student);
         System.out.println("新增学生: " + student);
     }
 
     // 查找学生信息
     public void findStudent(String id) {
-        Student student = studentMap.get(id);
+        com.example.day11.Student student = studentMap.get(id);
         if (student != null) {
             System.out.println("查询结果: " + student);
         } else {
@@ -471,8 +471,8 @@ public class StudentInformationSystem {
 ### 说明
 
 - **数据结构**：
-    - `HashMap<String, Student> studentMap`: 用于将学生学号映射到学生对象。
-    - `Student` 类：包含学生的基本信息，如学号、姓名、年龄和院系。
+    - `HashMap<String, com.example.day11.Student> studentMap`: 用于将学生学号映射到学生对象。
+    - `com.example.day11.Student` 类：包含学生的基本信息，如学号、姓名、年龄和院系。
 
 - **功能实现**：
     - `addStudent(String id, String name, int age, String department)`: 添加新的学生信息到系统中。
@@ -493,11 +493,11 @@ public class StudentInformationSystem {
 ```java
 import java.util.*;
 
-class Student {
+class com.example.day11.Student {
     private String name;
     private double score;
 
-    public Student(String name, double score) {
+    public com.example.day11.Student(String name, double score) {
         this.name = name;
         this.score = score;
     }
@@ -517,7 +517,7 @@ class Student {
 }
 
 public class StudentScoreSorter {
-    private List<Student> students;
+    private List<com.example.day11.Student> students;
 
     public StudentScoreSorter() {
         this.students = new ArrayList<>();
@@ -525,12 +525,12 @@ public class StudentScoreSorter {
 
     // 增加学生成绩
     public void addStudentScore(String name, double score) {
-        students.add(new Student(name, score));
+        students.add(new com.example.day11.Student(name, score));
     }
 
     // 输出前5名学生信息
     public void printTopStudents() {
-        Collections.sort(students, Comparator.comparingDouble(Student::getScore).reversed());
+        Collections.sort(students, Comparator.comparingDouble(com.example.day11.Student::getScore).reversed());
         System.out.println("前5名学生信息:");
         for (int i = 0; i < Math.min(5, students.size()); i++) {
             System.out.println(students.get(i));
@@ -563,11 +563,11 @@ public class StudentScoreSorter {
 ### 说明
 
 - **数据结构**：
-    - 使用 `ArrayList<Student>` 来保存学生和对应的成绩。
+    - 使用 `ArrayList<com.example.day11.Student>` 来保存学生和对应的成绩。
 
 - **排序实现**：
     - 使用 `Collections.sort()` 与 `Comparator` 按成绩逆序排序，确保高分在前。
-    - `Comparator.comparingDouble(Student::getScore).reversed()` 用于按成绩逆序排列。
+    - `Comparator.comparingDouble(com.example.day11.Student::getScore).reversed()` 用于按成绩逆序排列。
 
 - **功能实现**：
     - `addStudentScore(String name, double score)`: 添加学生成绩到列表中。
@@ -588,11 +588,11 @@ public class StudentScoreSorter {
 import java.util.*;
 import java.util.stream.Collectors;
 
-class Student {
+class com.example.day11.Student {
     private String name;
     private double score;
 
-    public Student(String name, double score) {
+    public com.example.day11.Student(String name, double score) {
         this.name = name;
         this.score = score;
     }
@@ -612,7 +612,7 @@ class Student {
 }
 
 public class StudentEvaluationSystem {
-    private List<Student> students;
+    private List<com.example.day11.Student> students;
 
     public StudentEvaluationSystem() {
         this.students = new ArrayList<>();
@@ -620,12 +620,12 @@ public class StudentEvaluationSystem {
 
     // 增加学生成绩
     public void addStudentScore(String name, double score) {
-        students.add(new Student(name, score));
+        students.add(new com.example.day11.Student(name, score));
     }
 
     // 筛选并计算平均分
     public void evaluateAndPrintTopStudents() {
-        List<Student> topStudents = students.stream()
+        List<com.example.day11.Student> topStudents = students.stream()
                 .filter(student -> student.getScore() > 90)
                 .collect(Collectors.toList());
 
@@ -633,7 +633,7 @@ public class StudentEvaluationSystem {
         topStudents.forEach(System.out::println);
 
         double averageScore = topStudents.stream()
-                .mapToDouble(Student::getScore)
+                .mapToDouble(com.example.day11.Student::getScore)
                 .average()
                 .orElse(0);
 

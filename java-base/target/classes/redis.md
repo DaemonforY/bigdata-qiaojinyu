@@ -573,8 +573,8 @@ public class JedisDemo {
 }
 ```
 
-**原理说明**：
 
+**原理说明**：
 - Jedis 通过 TCP 连接 Redis，所有命令均为同步阻塞。
 - String、List、Hash 操作与 CLI 命令一一对应。
 
@@ -623,7 +623,6 @@ public class com.example.springdemo.demo.RedisService {
 }
 ```
 **原理说明**：
-
 - Spring Data Redis 自动管理连接池，支持多种数据类型的高层API。
 - 推荐用 `StringRedisTemplate` 操作字符串，`RedisTemplate` 操作对象。
 
@@ -653,7 +652,6 @@ public class JedisCounterDemo {
 **需求**：每次用户登录时，统计用户的登录总次数。
 
 **Controller 示例**：
-
 ```java
 @RestController
 public class LoginController {
@@ -680,7 +678,6 @@ public class LoginController {
 #### 1. 缓存
 - **原理**：将热点数据（如用户信息、商品详情）存储在 Redis，减少数据库压力。
 - **代码示例**：
-    
     ```java
     // 查询缓存
     String value = jedis.get("user:1001");
@@ -706,7 +703,6 @@ public class LoginController {
 #### 3. 排行榜（ZSet）
 - **原理**：用 ZSet 的分数维护积分、热度等，自动排序，支持TopN查询。
 - **代码示例**：
-    
     ```java
     jedis.zincrby("score:rank", 10, "Alice");
     Set<String> top3 = jedis.zrevrange("score:rank", 0, 2);
@@ -715,7 +711,6 @@ public class LoginController {
 #### 4. 限流与防刷
 - **原理**：用计数器、过期时间等限制单位时间内的访问次数。
 - **代码示例**：
-    
     ```java
     String key = "req:ip:" + ip;
     long count = jedis.incr(key);
@@ -796,7 +791,6 @@ Double score = jedis.zscore("game:rank", "Tom");
 **思路**：用 key 记录用户/接口的访问次数，每次访问自增，首次访问设置60秒过期，超过5次则拒绝。
 
 **CLI 示例**
-
 ```bash
 INCR req:user:1001
 EXPIRE req:user:1001 60
@@ -826,7 +820,6 @@ ZREVRANGE rank 0 2 WITHSCORES
 ```
 
 **Java 示例（Jedis）**
-
 ```java
 jedis.zincrby("rank", 10, "Alice");
 jedis.zincrby("rank", 20, "Bob");
